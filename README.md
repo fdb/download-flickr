@@ -12,7 +12,11 @@ git clone https://github.com/fdb/download-flickr.git
 cd download-flickr
 ```
 
-Install dependencies using [pipenv](https://pipenv.readthedocs.io/en/latest/). On Mac, you can install Pipenv using Homebrew by typing `brew install pipenv`. On other systems, you can install it using `pip install --user pipenv`.
+Install dependencies using [pipenv](https://pipenv.readthedocs.io/en/latest/). On Mac, you can install Pipenv using Homebrew by typing `brew install pipenv`. On other systems, you can install it using `pip install --user pipenv`. Then run
+
+```
+pipenv install
+```
 
 ### Flickr API Keys
 
