@@ -25,8 +25,12 @@ if not os.path.exists(AUTH_FILENAME):
   a = flickr_api.auth.AuthHandler()
   perms = "read"
   url = a.get_authorization_url(perms)
+  print()
+  print('To download your personal photos from Flickr you need to login first.')
   print('Visit the following URL, then paste in the oauth_verifier code and press enter:')
+  print()
   print(url)
+  print()
   oauth_verifier = input("oauth_verifier code: ")
   a.set_verifier(oauth_verifier)
   flickr_api.set_auth_handler(a)
@@ -51,10 +55,10 @@ for photoset in photosets:
   ensure_dir(photoset_dir)
   photos = photoset.getPhotos()
   for photo in photos:
-    print('  {} {}'.format(photo.id, photo.title))
     filename = '{}_o'.format(photo.id)
     abs_filename = os.path.join(photoset_dir, filename)
     if not os.path.exists(abs_filename + '.jpg'):
+      print('  {} {}'.format(photo.id, photo.title))
       try:
         photo.save(abs_filename, size_label = 'Original')
       except KeyboardInterrupt:
